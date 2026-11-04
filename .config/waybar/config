@@ -1,0 +1,109 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "spacing": 0,
+
+  "modules-left": ["hyprland/workspaces", "power-profiles-daemon"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "battery", "backlight", "tray"],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "all-outputs": false
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "pwr ?",
+      "power-saver": "pwr saver",
+      "balanced": "pwr balanced",
+      "performance": "pwr perf"
+    },
+    "tooltip": false
+  },
+
+  "custom/brightness": {
+    "exec": "~/.config/waybar/scripts/bri.sh",
+    "return-type": "json",
+    "interval": 5,
+    "signal": 9,
+    "on-scroll-up": "~/.config/waybar/scripts/bri.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/bri.sh down",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "bri {percent}%",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "tooltip": false
+  },
+
+  "custom/power": {
+    "exec": "~/.config/waybar/scripts/power.sh",
+    "return-type": "json",
+    "interval": 2,
+    "on-click": "~/.config/waybar/scripts/power.sh next",
+    "tooltip": false
+  },
+
+  "hyprland/window": {
+    "format": "> {title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "mem {percentage}%",
+    "interval": 5
+  },
+
+  "network": {
+    "format-wifi": "{essid} {signalStrength}%",
+    "format-ethernet": "eth {ipaddr}",
+    "format-disconnected": "net down",
+    "tooltip-format": "{ifname} {ipaddr}"
+  },
+
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "vol muted",
+    "format-bluetooth": "blt00th {volume}%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +3%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -3%"
+  },
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-muted": "{format_source}",
+    "format-source": "mic {volume}%",
+    "format-source-muted": "mic muted",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SOURCE@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 5%-"
+  },
+
+  "battery": {
+    "format": "bat {capacity}%",
+    "format-charging": "bat {capacity}% +",
+    "states": { "warning": 25, "critical": 10 }
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}

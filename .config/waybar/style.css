@@ -1,0 +1,116 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: #000000;
+  color: #e6c86e;
+  border-bottom: 1px solid #e6c86e;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background: transparent;
+  color: #e6c86e;
+}
+
+#workspaces button:hover {
+  background: #2a2410;
+}
+
+#workspaces button.active {
+  background: #e6c86e;
+  color: #000000;
+}
+
+#workspaces button.urgent {
+  background: #f2dc8f;
+  color: #000000;
+}
+
+#window,
+#clock,
+#cpu,
+#memory,
+#network,
+#wireplumber,
+#battery,
+#tray {
+  padding: 0 10px;
+  background: transparent;
+  color: #e6c86e;
+}
+
+#window {
+  color: #f2dc8f;
+}
+
+#network.disconnected,
+#wireplumber.muted {
+  color: #8a7a3f;
+}
+
+#battery.warning {
+  background: transparent;
+  color: #e6c86e;
+}
+
+#battery.critical {
+  background: #e6c86e;
+  color: #000000;
+}
+/* Base styling applied to standard speaker output only */
+#pulseaudio {
+  padding: 0 10px;
+  background: transparent;
+  color: #e6c86e;
+}
+
+/* 🟢 FIX: This now ONLY targets the speaker when muted, leaving the mic alone */
+#pulseaudio:not(.mic).muted {
+  background: transparent;
+  color: #8a7a3f;
+}
+
+/* Base styling applied strictly to the microphone input */
+#pulseaudio.mic {
+  padding: 0 10px;
+  background: transparent;
+  color: #e6c86e;
+}
+
+/* Targets the microphone strictly when the source mic is muted */
+#pulseaudio.mic.source-muted {
+  background: transparent;
+  color: #8a7a3f;
+}
+#power-profiles-daemon {
+  padding: 0 10px;
+  background: transparent;
+  color: #e6c86e;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #8a7a3f;
+}
+
+#power-profiles-daemon.performance {
+  color: #f2dc8f;
+}
+
+#custom-brightness {
+  padding: 0 10px;
+  background: transparent;
+}
+
+#custom-brightness.l5 { color: #f2dc8f; }
+#custom-brightness.l4 { color: #e6c86e; }
+#custom-brightness.l3 { color: #c9ae56; }
+#custom-brightness.l2 { color: #8a7a3f; }
+#custom-brightness.l1 { color: #5a4f28; }
