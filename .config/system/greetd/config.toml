@@ -1,0 +1,6 @@
+[terminal]
+vt = 1
+
+[default_session]
+command = "cage -s -- foot -c /etc/greetd/foot.ini tuigreet --issue --time --asterisks --remember --remember-session --theme 'border=blue;text=blue;prompt=blue;time=blue;action=black;button=blue;input=blue;title=blue;greet=blue' --cmd start-hyprland"
+user = "greeter"
