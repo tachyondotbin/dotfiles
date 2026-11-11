@@ -7,12 +7,12 @@
   "modules-left": ["hyprland/workspaces", "power-profiles-daemon"],
   "modules-center": ["clock"],
   "modules-right": ["cpu", "memory", "network", "pulseaudio", "pulseaudio#mic", "battery", "backlight", "tray"],
+  
   "hyprland/workspaces": {
-    "format": "{id}",
-    "on-click": "activate",
-    "all-outputs": false
+    "format": "{icon}",
+    "format-icons": { "1": "壱", "2": "弐", "3": "参", "4": "四", "5": "五", "default": "•" },
+    "on-click": "activate"
   },
-
   "power-profiles-daemon": {
     "format": "{icon}",
     "format-icons": {
@@ -62,13 +62,15 @@
   },
 
   "cpu": {
-    "format": "cpu {usage}%",
-    "interval": 2
+  "format": "cpu {usage}%",
+  "interval": 5,
+  "states": { "critical": 90 }
   },
 
   "memory": {
     "format": "mem {percentage}%",
-    "interval": 5
+    "interval": 5,
+    "states": { "critical": 90 }
   },
 
   "network": {

@@ -1,6 +1,6 @@
-if command -q fastfetch; and test "$TERM_PROGRAM" != vscode; and not set -q TMUX
-    fastfetch
-end
+#if command -q fastfetch; and test "$TERM_PROGRAM" != vscode; and not set -q TMUX
+	#    fastfetch
+    #end
 # --- env (cheap, also useful for non-interactive shells) ---
 set -gx EDITOR nvim
 set -gx VISUAL nvim

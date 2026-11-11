@@ -41,6 +41,10 @@ hl.monitor({
     scale = 1,
     transform = 3
 })
+
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set 2%+"), { locked = true, repeating = true }) -- | WORKING
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 2%-"), { locked = true, repeating = true })  -- |
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -127,8 +131,15 @@ hl.config({
 ----------------
 
 hl.config({
+    debug = {
+	vfr = true
+    },
+    render = {
+--	direct_scanout = 2, -- 0 1 2
+    },
     misc = {
-        force_default_wallpaper  = 0,      -- no mascot wallpapers
+	render_unfocused_fps = 5,
+        force_default_wallpaper  = 0,-- no mascot wallpapers
         disable_hyprland_logo    = true,
         disable_splash_rendering = true,
         mouse_move_enables_dpms  = true,   -- wake screen after hypridle turns it off
@@ -172,7 +183,7 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
